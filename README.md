@@ -12,6 +12,11 @@ It is designed as a real open-source CLI foundation: modular TypeScript, strongl
 ## Commands
 
 - `stardev init` prepares a project with docs, assets, screenshots, Git, README, LICENSE, and safe ignore files.
+- `stardev sync` safely commits and pushes a project to GitHub with smart commit messages.
+- `stardev ci` generates a GitHub Actions quality workflow.
+- `stardev env` scans source code and generates `.env.example`.
+- `stardev health` scores README, tests, security, Git, package health, CI, and deployment readiness.
+- `stardev security` scans for secrets, risky code patterns, and optional dependency audit issues.
 - `stardev github` creates a GitHub repository, sets description/topics/homepage, pushes the project, and opens the repo.
 - `stardev publish` generates documentation and publishes to GitHub in one workflow.
 - `stardev readme` generates a premium README with badges, tech stack, installation, screenshots, roadmap, author, and links.
@@ -87,27 +92,32 @@ Secrets are never written into generated project files and `.env` files are igno
 
 ```text
 src/
-├── ai/
-├── changelog/
-├── commands/
-├── config/
-├── constants/
-├── deployment/
-├── errors/
-├── github/
-├── logger/
-├── portfolio/
-├── readme/
-├── releases/
-├── review/
-├── screenshots/
-├── templates/
-├── types/
-├── utils/
-└── index.ts
+|-- ai/
+|-- changelog/
+|-- ci/
+|-- commands/
+|-- config/
+|-- constants/
+|-- deployment/
+|-- env/
+|-- errors/
+|-- github/
+|-- health/
+|-- logger/
+|-- portfolio/
+|-- readme/
+|-- releases/
+|-- review/
+|-- screenshots/
+|-- security/
+|-- sync/
+|-- templates/
+|-- types/
+|-- utils/
+`-- index.ts
 ```
 
-Each command is registered independently. Commands orchestrate user input and workflows, while domain services implement GitHub, deployment, README generation, screenshot capture, review analysis, release creation, AI provider access, and encrypted configuration.
+Each command is registered independently. Commands orchestrate user input and workflows, while domain services implement GitHub, deployment, README generation, screenshot capture, review analysis, release creation, CI generation, env scanning, security scanning, project health scoring, smart sync, AI provider access, and encrypted configuration.
 
 ## Example Workflows
 
@@ -124,6 +134,21 @@ Publish to GitHub:
 ```bash
 stardev config set
 stardev github --topics "typescript,cli,developer-tools"
+```
+
+Keep an existing repository synced:
+
+```bash
+stardev sync --repo https://github.com/user/repo.git
+```
+
+Add daily-use quality automation:
+
+```bash
+stardev ci --audit
+stardev env
+stardev security
+stardev health
 ```
 
 Capture launch assets:
@@ -166,7 +191,7 @@ stardev ai proposal --provider openai --api-key "$OPENAI_API_KEY"
 - Add unused dependency analysis by package graph.
 - Add richer React and Tailwind static checks.
 - Add provider adapters for Gemini, Claude, and local model servers.
-- Add CI templates and release automation for npm publishing.
+- Add npm publishing release automation.
 
 ## Contributing
 

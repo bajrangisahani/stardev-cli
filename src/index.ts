@@ -5,11 +5,14 @@ import { Command } from "commander";
 import "dotenv/config";
 
 import { registerAiCommand } from "./commands/ai.js";
+import { registerCiCommand } from "./commands/ci.js";
 import { registerClientCommand } from "./commands/client.js";
 import { registerConfigCommand } from "./commands/config.js";
 import { registerDeployCommand } from "./commands/deploy.js";
 import { registerDoctorCommand } from "./commands/doctor.js";
+import { registerEnvCommand } from "./commands/env.js";
 import { registerGitHubCommand } from "./commands/github.js";
+import { registerHealthCommand } from "./commands/health.js";
 import { registerInitCommand } from "./commands/init.js";
 import { registerOptimizeCommand } from "./commands/optimize.js";
 import { registerPortfolioCommand } from "./commands/portfolio.js";
@@ -17,7 +20,9 @@ import { registerPublishCommand } from "./commands/publish.js";
 import { registerReadmeCommand } from "./commands/readme.js";
 import { registerReleaseCommand } from "./commands/release.js";
 import { registerReviewCommand } from "./commands/review.js";
+import { registerSecurityCommand } from "./commands/security.js";
 import { registerScreenshotCommand } from "./commands/screenshot.js";
+import { registerSyncCommand } from "./commands/sync.js";
 import { StardevError, toStardevError } from "./errors/StardevError.js";
 import { logger } from "./logger/logger.js";
 
@@ -32,6 +37,11 @@ program
   });
 
 registerInitCommand(program);
+registerSyncCommand(program);
+registerCiCommand(program);
+registerEnvCommand(program);
+registerHealthCommand(program);
+registerSecurityCommand(program);
 registerPublishCommand(program);
 registerGitHubCommand(program);
 registerReadmeCommand(program);
