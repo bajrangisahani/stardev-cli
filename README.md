@@ -16,6 +16,8 @@ Build • Document • Review • Optimize • Deploy • Release
 
 From project initialization to GitHub, documentation, AI, deployment, screenshots, releases, and client deliverables—everything in one powerful command-line tool.
 
+![STARDEV CLI demo](assets/demo.gif)
+
 </div>
 
 ---
@@ -63,6 +65,14 @@ Run:
 
 ```bash
 stardev --help
+```
+
+---
+
+Regenerate the README demo GIF:
+
+```bash
+node scripts/create-demo-gif.mjs
 ```
 
 ---
