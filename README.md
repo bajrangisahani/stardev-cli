@@ -30,6 +30,28 @@ It is designed as a real open-source CLI foundation: modular TypeScript, strongl
 - `stardev client` generates proposal, invoice, estimate, Fiverr, Upwork, LinkedIn, GitHub, and summary copy.
 - `stardev ai readme|description|proposal|review|changelog` uses a provider abstraction for local or hosted AI output.
 
+## Quality Automation Features
+
+These are the core daily-use features added to make STARDEV CLI practical for real projects:
+
+| Feature | Command | What it does |
+| --- | --- | --- |
+| Auto Sync | `stardev sync` | Initializes Git when needed, sets `origin`, creates a smart commit message, commits changes, and pushes to GitHub. |
+| CI Generator | `stardev ci` | Creates `.github/workflows/stardev-ci.yml` with install, audit, lint, typecheck, test, and build steps when available. |
+| Env Example Generator | `stardev env` | Scans source code for environment variables and updates `.env.example` safely. |
+| Health Score | `stardev health` | Scores README, license, Git status, package health, tests, env example, CI, security, and deploy readiness. |
+| Security Scanner | `stardev security` | Scans for hard-coded secrets, exposed tokens, unsafe execution, shell risks, and XSS-prone patterns. |
+
+Example:
+
+```bash
+stardev sync --repo https://github.com/bajrangisahani/stardev-cli.git
+stardev ci --audit
+stardev env
+stardev security
+stardev health
+```
+
 ## Tech Stack
 
 - TypeScript and Node.js
